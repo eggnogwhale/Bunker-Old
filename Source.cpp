@@ -79,7 +79,6 @@ int main() {
 		Inventory.HotbarFunctions();
 		Interaction.MouseFunctions();
 		KeyboardInput.GetInput();
-		DEBUGDISPLAY.SHOW();
 
 
 		/// This is a debug thing for closing the game by pressing backspace
