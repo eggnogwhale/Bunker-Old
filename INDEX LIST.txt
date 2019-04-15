@@ -1,0 +1,12 @@
+///////////////   TILES   ///////////////
+0 - Debug Tile
+1 - Grass Tile
+
+///////////////   WALLS   ///////////////
+0 - Void Tile
+1 - Tree #1
+2 - Tree #2
+
+///////////////  INVENTORY   ///////////////
+0 - Empty Slot
+1 - Wood Block
