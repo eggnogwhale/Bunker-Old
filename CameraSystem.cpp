@@ -18,7 +18,7 @@
 /////////////////////////////////////////////////
 
 CameraSystem::CameraSystem() {
-        SetCamera(&PlayerPass->posX,&PlayerPass->posY);
+	SetCamera(&PlayerPass->posX,&PlayerPass->posY);
 	view.setSize(sf::Vector2f(1280, 720));
 	view.setCenter(sf::Vector2f(*posX, *posY));
 	return;

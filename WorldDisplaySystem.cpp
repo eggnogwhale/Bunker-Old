@@ -40,8 +40,8 @@ void WorldDisplaySystem::DrawEverything() {
 void WorldDisplaySystem::DrawTiles() {
 
 	//Getting The Player Position
-	playerTilePosX = (PlayerPass->posX - (PlayerPass->posX % 32)) / 32;
-	playerTilePosY = (PlayerPass->posY - (PlayerPass->posY % 32)) / 32;
+	playerTilePosX = (*CameraPass->posX - (*CameraPass->posX % 32)) / 32;
+	playerTilePosY = (*CameraPass->posY - (*CameraPass->posY % 32)) / 32;
 
 	//Drawing Tiles on the Y axis
 	for (drawY = (playerTilePosY - 13); drawY != playerTilePosY + 13; drawY++) {
@@ -82,7 +82,7 @@ void WorldDisplaySystem::DrawTiles() {
 				//Debug Tile
 				if (WorldTilePass->WorldTileMap[drawX][drawY] == 0) {
 					WorldTilePass->DebugSprite.setPosition(sf::Vector2f(WorldTilePass->DebugSprite.getGlobalBounds().width * drawX, WorldTilePass->DebugSprite.getGlobalBounds().height * drawY));
-					WorldTilePass->DebugSprite.rotate(0.0f); //THIS LINE IS WACK ASS WHEN CHANGED PAST 0
+					WorldTilePass->DebugSprite.rotate(0.1f); //THIS LINE IS WACK ASS WHEN CHANGED PAST 0
 					WindowPass->draw(WorldTilePass->DebugSprite);
 				}
 

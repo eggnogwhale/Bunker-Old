@@ -54,7 +54,6 @@ InventorySystem::InventorySystem() {
 		inventoryDurability[clearSlot] = 0;
 	}
 
-	return;
 }
 
 
@@ -69,7 +68,7 @@ void InventorySystem::DisplayHotbar() {
 
 
 	//Drawing the hotbar and pockets
-	hotbarSprite.setPosition(sf::Vector2f(PlayerPass->posX - (1280 / 2), PlayerPass->posY + (720/2) - hotbarSprite.getGlobalBounds().height));
+	hotbarSprite.setPosition(sf::Vector2f(*CameraPass->posX - (1280 / 2), *CameraPass->posY + (720/2) - hotbarSprite.getGlobalBounds().height));
 	WindowPass->draw(hotbarSprite);
 
 	//Displaying Hotbar Items
@@ -77,14 +76,12 @@ void InventorySystem::DisplayHotbar() {
 
 		//Wood Block
 		if (inventory[displayHotbar] == 1) {
-			logSprite.setPosition(sf::Vector2f(PlayerPass->posX - (1280/2) + (24 * displayHotbar) + 30,PlayerPass->posY + (720/2) - logSprite.getGlobalBounds().height - 2));
+			logSprite.setPosition(sf::Vector2f(*CameraPass->posX - (1280/2) + (24 * displayHotbar) + 30,*CameraPass->posY + (720/2) - logSprite.getGlobalBounds().height - 2));
 			WindowPass->draw(logSprite);
 			DisplayNumberPass->Display(logSprite.getPosition().x, logSprite.getPosition().y, inventoryAmount[displayHotbar]);
 		}
 
 	}
-
-	return;
 }
 
 
@@ -125,8 +122,6 @@ void InventorySystem::DrawInteractionBoxes() {
 
 	//Drawing All 
 
-
-	return;
 }
 
 
@@ -134,5 +129,4 @@ void InventorySystem::DrawInteractionBoxes() {
 void InventorySystem::HotbarFunctions() {
 	DisplayHotbar();
 	DrawInteractionBoxes();
-	return;
 }

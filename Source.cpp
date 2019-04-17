@@ -2,11 +2,10 @@
 #include <time.h>
 #include "Header.h"
 #include "PlayerCharacter.h"
-#include "KeyboardInputSystem.h"
+#include "InputSystem.h"
 #include "CameraSystem.h"
 #include "WorldTileGenerator.h"
 #include "WorldDisplaySystem.h"
-#include "InteractionSystem.h"
 #include "InventorySystem.h"
 #include "DisplayNumbersSystem.h"
 
@@ -20,9 +19,7 @@ DisplayNumbersSystem * DisplayNumberPass;
 
 
 int main() {
-
 	
-
 	//Setting up randomly generated seed
 	srand(time(NULL));
 
@@ -37,19 +34,17 @@ int main() {
 	//Player Instantiation and pointer passing
 	PlayerCharacter Player;
 	PlayerPass = &Player;
-	//Keyboard Control Setup
-	KeyboardInputSystem KeyboardInput;
+	//Control Setup
+	InputSystem Input;
 	//Camera that focuses on the players
 	CameraSystem Camera;
-        CameraPass = &Camera;
+	CameraPass = &Camera;
 	//World Tile Generator instantiation, passing and generating a tile
 	WorldTileGenerator TileGenerator;
 	WorldTilePass = &TileGenerator;
 	TileGenerator.GenerateTile();
 	//World Displaying System
 	WorldDisplaySystem WorldDisplay;
-	//Interaction System
-	InteractionSystem Interaction;
 	//Inventory Setup
 	InventorySystem Inventory;
 	InventoryPass = &Inventory;
@@ -77,8 +72,8 @@ int main() {
 		WorldDisplay.DrawEverything();
 		Player.Draw();
 		Inventory.HotbarFunctions();
-		Interaction.MouseFunctions();
-		KeyboardInput.GetInput();
+		Input.MouseFunctions();
+		Input.RunKeyboardInput();
 
 
 		/// This is a debug thing for closing the game by pressing backspace

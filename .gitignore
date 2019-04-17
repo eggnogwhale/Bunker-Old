@@ -1,0 +1,6 @@
+/build/
+/dist/
+.dep.inc
+Makefile
+nbproject/
+Bunker-Makefile.mk
