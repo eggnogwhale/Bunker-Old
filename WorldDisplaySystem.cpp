@@ -1,7 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "Header.h"
 #include "WorldDisplaySystem.h"
-//#include <iostream>
+#include <iostream>
+#include <stdlib.h>
 
 ////////////////////  INDEX  ////////////////////
 //
@@ -42,6 +43,8 @@ void WorldDisplaySystem::DrawTiles() {
 	//Getting The Player Position
 	playerTilePosX = (PlayerPass->posX - (PlayerPass->posX % 32)) / 32;
 	playerTilePosY = (PlayerPass->posY - (PlayerPass->posY % 32)) / 32;
+	std::cout << "X: " << playerTilePosX << ", Y:" << playerTilePosY << std::endl;
+	system("cls");
 
 	//Drawing Tiles on the Y axis
 	for (drawY = (playerTilePosY - 13); drawY != playerTilePosY + 13; drawY++) {
@@ -64,13 +67,13 @@ void WorldDisplaySystem::DrawTiles() {
 			}
 
 			//Drawing too far right DEFAULT SETTING = 100, otherwise weird shit happens
-			if (drawX > 100000) {
+			if (drawX > WorldTilePass->WORLD_SIZE_X) {
 				displayError = 1;
 				break;
 			}
 
 			//Drawing below the map
-			if (drawY > 101) {
+			if (drawY > WorldTilePass->WORLD_SIZE_Y) {
 				displayError = 1;
 				return;
 			}
@@ -120,13 +123,13 @@ void WorldDisplaySystem::DrawWalls() {
 			}
 
 			//Drawing too far right DEFAULT SETTING = 100, otherwise weird shit happens
-			if (drawX > 100) {
+			if (drawX > WorldTilePass->WORLD_SIZE_X) {
 				displayError = 1;
 				break;
 			}
 
 			//Drawing below the map
-			if (drawY > 101) {
+			if (drawY > WorldTilePass->WORLD_SIZE_Y) {
 				displayError = 1;
 				return;
 			}

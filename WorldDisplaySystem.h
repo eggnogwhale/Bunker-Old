@@ -8,6 +8,8 @@ struct WorldDisplaySystem {
 	int drawY;
 	int displayError;
 
+	
+
 	//Constructor
 	WorldDisplaySystem();
 
