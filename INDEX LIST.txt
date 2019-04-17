@@ -7,6 +7,11 @@
 1 - Tree #1
 2 - Tree #2
 
-///////////////  INVENTORY   ///////////////
+///////////////   INVENTORY   ///////////////
 0 - Empty Slot
 1 - Wood Block
+
+//////////////   Entities   //////////////
+0 - NULL
+1 - Player
+2 - Bleeb

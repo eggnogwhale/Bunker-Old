@@ -8,6 +8,9 @@
 #include "WorldDisplaySystem.h"
 #include "InventorySystem.h"
 #include "DisplayNumbersSystem.h"
+#include "ResourceManager.h"
+#include "EntitySystem.h"
+#include <SFML/OpenGL.hpp>
 
 //External Things
 PlayerCharacter *PlayerPass;
@@ -16,7 +19,7 @@ sf::RenderWindow *WindowPass;
 WorldTileGenerator * WorldTilePass;
 InventorySystem * InventoryPass;
 DisplayNumbersSystem * DisplayNumberPass;
-
+ResourceManager * ResourcePass;
 
 int main() {
 	
@@ -31,6 +34,9 @@ int main() {
 	WindowPass = &window;
 
 	//////////  Class Declaration  //////////
+	
+	ResourceManager Resources;
+	ResourcePass = &Resources;
 	//Player Instantiation and pointer passing
 	PlayerCharacter Player;
 	PlayerPass = &Player;
@@ -52,6 +58,7 @@ int main() {
 	DisplayNumbersSystem DisplayNumbers;
 	DisplayNumberPass = &DisplayNumbers;
 
+	EntitySystem systemOfEntities;
 	///////////////////////////////////////////
 	///////////////  Game Loop  ///////////////
 	while (window.isOpen()) {
@@ -71,6 +78,8 @@ int main() {
 		Camera.UpdateCamera();
 		WorldDisplay.DrawEverything();
 		Player.Draw();
+		systemOfEntities.drawEntities();
+		systemOfEntities.runEntities();
 		Inventory.HotbarFunctions();
 		Input.MouseFunctions();
 		Input.RunKeyboardInput();

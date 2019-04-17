@@ -1,4 +1,3 @@
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Header.h"
 #include "InventorySystem.h"
@@ -111,9 +110,7 @@ void InventorySystem::AddItem(int itemID, int amount) {
 		}
 	}
 
-
 	//If the player has no empty spots end the function
-	return;
 }
 
 

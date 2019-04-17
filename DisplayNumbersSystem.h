@@ -1,11 +1,11 @@
 #pragma once
 struct DisplayNumbersSystem {
+	
+	//Textures
+	sf::Texture numberTextures[10];
 
-        //Textures
-        sf::Texture numberTextures[10];
-
-	//Sprites
-        sf::Sprite numberSprites[10];
+	//Sprite
+	sf::Sprite numberSprites[10];
 
 	//Constructor
 	DisplayNumbersSystem();
