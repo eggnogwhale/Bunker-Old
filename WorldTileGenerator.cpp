@@ -42,15 +42,15 @@ WorldTileGenerator::WorldTileGenerator() {
 void WorldTileGenerator::GenerateTile() {
 
 	//Generate Tile Map
-	for (int y = 0; y != 101; y++) {
-		for (int x = 0; x != 101; x++) {
+	for (int y = 0; y != WORLD_SIZE_Y; y++) {
+		for (int x = 0; x != WORLD_SIZE_X; x++) {
 			WorldTileMap[x][y] = 1;
 		}
 	}
 
 	//Generate Wall Map
-	for (int randY = 0; randY != 100; randY++) {
-		for (int randX = 0; randX != 100; randX++) {
+	for (int randY = 0; randY != WORLD_SIZE_Y; randY++) {
+		for (int randX = 0; randX != WORLD_SIZE_X; randX++) {
 			
 			//Generating A Random Number
 			randomNumber = rand() % 6 + 1;

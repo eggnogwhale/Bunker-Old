@@ -4,7 +4,15 @@ struct WorldTileGenerator {
 	//DEBUG TILES
 	sf::Texture DebugTex;
 	sf::Sprite DebugSprite;
-	
+
+	//World Size, Saves The Array Length and Width - 1
+	//THESE ARE EXTREMELY IMPORTANT FOR DISPLAYING TILES & WALLS
+	const int WORLD_SIZE_X = 150;
+	const int WORLD_SIZE_Y = 150;
+
+	//Array
+	int WorldTileMap[151][151];
+	int WorldWallMap[151][151];
 
 	//////////  TILES  //////////
 	//Textures
@@ -22,8 +30,6 @@ struct WorldTileGenerator {
 
 	//Variables
 	int randomNumber;
-	int WorldTileMap[101][101];
-	int WorldWallMap[101][101];
 
 	//Constructor
 	WorldTileGenerator();
