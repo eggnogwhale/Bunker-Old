@@ -7,7 +7,7 @@ Entity::Entity(int id) {
 	m_id = id;
 	m_x = rand() %5000 + 150;
 	m_y = rand() %5000 + 150;
-	m_s = rand() % 5+1;
+	m_s = rand() % 4+2;
 }
 Entity::~Entity() {}
 
@@ -16,6 +16,6 @@ void Entity::draw(){
 	WindowPass->draw(ResourcePass->bleebSprite);
 }
 void Entity::run(){
-	m_x += m_s * (m_x>PlayerPass->posX?-1:1)+ rand()%2;
-	m_y += m_s * (m_y>PlayerPass->posY?-1:1);
+	m_x += m_s * (m_x>PlayerPass->posX?-1:1)+ rand()%12-6;
+	m_y += m_s * (m_y>PlayerPass->posY?-1:1)+ rand()%12-6;
 }

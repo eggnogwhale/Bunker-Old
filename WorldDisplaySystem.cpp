@@ -43,8 +43,8 @@ void WorldDisplaySystem::DrawTiles() {
 	//Getting The Player Position
 	playerTilePosX = (PlayerPass->posX - (PlayerPass->posX % 32)) / 32;
 	playerTilePosY = (PlayerPass->posY - (PlayerPass->posY % 32)) / 32;
-	std::cout << "X: " << playerTilePosX << ", Y:" << playerTilePosY << std::endl;
-	system("cls");
+	//std::cout << "X: " << playerTilePosX << ", Y:" << playerTilePosY << std::endl;
+	//system("cls");
 
 	//Drawing Tiles on the Y axis
 	for (drawY = (playerTilePosY - 13); drawY != playerTilePosY + 13; drawY++) {
