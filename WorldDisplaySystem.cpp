@@ -31,7 +31,7 @@ WorldDisplaySystem::WorldDisplaySystem() {
 }
 
 //MASTER DRAWING FUNCTION THAT JUST RUNS ALL DRAW FUNCTIONS BELOW
-void WorldDisplaySystem::DrawEverything() {
+void WorldDisplaySystem::DrawWorld() {
 	//Drawing Everything from lowest layer to highest
 	DrawTiles();
 	DrawWalls();
@@ -43,8 +43,6 @@ void WorldDisplaySystem::DrawTiles() {
 	//Getting The Player Position
 	playerTilePosX = (PlayerPass->posX - (PlayerPass->posX % 32)) / 32;
 	playerTilePosY = (PlayerPass->posY - (PlayerPass->posY % 32)) / 32;
-	std::cout << "X: " << playerTilePosX << ", Y:" << playerTilePosY << std::endl;
-	system("cls");
 
 	//Drawing Tiles on the Y axis
 	for (drawY = (playerTilePosY - 13); drawY != playerTilePosY + 13; drawY++) {
@@ -85,15 +83,44 @@ void WorldDisplaySystem::DrawTiles() {
 				//Debug Tile
 				if (WorldTilePass->WorldTileMap[drawX][drawY] == 0) {
 					WorldTilePass->DebugSprite.setPosition(sf::Vector2f(WorldTilePass->DebugSprite.getGlobalBounds().width * drawX, WorldTilePass->DebugSprite.getGlobalBounds().height * drawY));
-					WorldTilePass->DebugSprite.rotate(0.1f); //THIS LINE IS WACK ASS WHEN CHANGED PAST 0
+					//WorldTilePass->DebugSprite.rotate(0.1f); //THIS LINE IS WACK ASS WHEN CHANGED PAST 0
 					WindowPass->draw(WorldTilePass->DebugSprite);
 				}
-
 				//Grass Tile
 				if (WorldTilePass->WorldTileMap[drawX][drawY] == 1) {
 					WorldTilePass->GrassSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
 					WindowPass->draw(WorldTilePass->GrassSprite);
-				}//*/
+				}
+				//Red Tile
+				if (WorldTilePass->WorldTileMap[drawX][drawY] == 2) {
+					WorldTilePass->redSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
+					WindowPass->draw(WorldTilePass->redSprite);
+				}
+				//Purple Tile
+				if (WorldTilePass->WorldTileMap[drawX][drawY] == 3) {
+					WorldTilePass->purpleSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
+					WindowPass->draw(WorldTilePass->purpleSprite);
+				}
+				//Blue Tile
+				if (WorldTilePass->WorldTileMap[drawX][drawY] == 4) {
+					WorldTilePass->blueSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
+					WindowPass->draw(WorldTilePass->blueSprite);
+				}
+				//Jesse Construction Tile
+				if (WorldTilePass->WorldTileMap[drawX][drawY] == 5) {
+					WorldTilePass->jesseConstructionSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
+					WindowPass->draw(WorldTilePass->jesseConstructionSprite);
+				}
+				//Fuzzen Construction Tile
+				if (WorldTilePass->WorldTileMap[drawX][drawY] == 6) {
+					WorldTilePass->fuzzenConstructionSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
+					WindowPass->draw(WorldTilePass->fuzzenConstructionSprite);
+				}
+				//Path
+				if (WorldTilePass->WorldTileMap[drawX][drawY] == 7) {
+					WorldTilePass->pathSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
+					WindowPass->draw(WorldTilePass->pathSprite);
+				}
 			}
 		}
 	}

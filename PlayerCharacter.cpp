@@ -84,8 +84,8 @@ void PlayerCharacter::MoveUp() {
 
 void PlayerCharacter::MoveDown() {
 	//If moving below the world
-	if (posY > 100 * 32) {
-		posY = 100 * 32;
+	if (posY > WorldTilePass->WORLD_SIZE_Y * 32) {
+		posY = WorldTilePass->WORLD_SIZE_Y * 32;
 	}//*/
 
 	//Moving into position
@@ -108,9 +108,8 @@ void PlayerCharacter::MoveLeft() {
 
 void PlayerCharacter::MoveRight() {
 	//If moving too far right
-	/*
-        if (posX > 32 * 100) {
-		posX = 32 * 100;
+    if (posX > WorldTilePass->WORLD_SIZE_X * 32) {
+		posX = WorldTilePass->WORLD_SIZE_X * 32;
 	}//*/
 
 	//Moving into position

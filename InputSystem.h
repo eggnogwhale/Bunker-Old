@@ -23,6 +23,8 @@ struct InputSystem {
 
 	void CheckWallInteraction();
 
+	void CheckPlacingTile();
+
 	//Keyboard functions
 	void RunKeyboardInput();
 };

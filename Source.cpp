@@ -29,7 +29,7 @@ int main() {
 	srand(time(NULL));
 
 	//////////  Window Setup  //////////
-	sf::RenderWindow window(sf::VideoMode(1920,1080), "Bunker");
+	sf::RenderWindow window(sf::VideoMode(1920,1080), "Bunker", sf::Style::Fullscreen);
 	window.setMouseCursorVisible(false);
 	window.setFramerateLimit(60);
 	sf::Event event;
@@ -82,7 +82,7 @@ int main() {
 
 		//This shit seems to work right now
 		Camera.UpdateCamera();
-		WorldDisplay.DrawEverything();
+		WorldDisplay.DrawWorld();
 		Player.Draw();
 		systemOfEntities.drawEntities();
 		systemOfEntities.runEntities();

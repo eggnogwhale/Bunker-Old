@@ -117,8 +117,7 @@ void InventorySystem::AddItem(int itemID, int amount) {
 
 void InventorySystem::DrawInteractionBoxes() {
 
-	//Drawing All 
-
+	return;
 }
 
 
