@@ -20,6 +20,8 @@ WorldTileGenerator * WorldTilePass;
 InventorySystem * InventoryPass;
 DisplayNumbersSystem * DisplayNumberPass;
 ResourceManager * ResourcePass;
+SaveSystem * SaveSystemPass;
+InputSystem * InputPass;
 
 int main() {
 	
@@ -29,7 +31,7 @@ int main() {
 	//////////  Window Setup  //////////
 	sf::RenderWindow window(sf::VideoMode(1920,1080), "Bunker", sf::Style::Fullscreen);
 	window.setMouseCursorVisible(false);
-	window.setFramerateLimit(500);
+	window.setFramerateLimit(60);
 	sf::Event event;
 	WindowPass = &window;
 
@@ -42,6 +44,7 @@ int main() {
 	PlayerPass = &Player;
 	//Control Setup
 	InputSystem Input;
+	InputPass = &Input;
 	//Camera that focuses on the players
 	CameraSystem Camera;
 	CameraPass = &Camera;
@@ -57,6 +60,9 @@ int main() {
 	//Number Display Setup
 	DisplayNumbersSystem DisplayNumbers;
 	DisplayNumberPass = &DisplayNumbers;
+	//Save System
+	SaveSystem SaveSystemOne;
+	SaveSystemPass = &SaveSystemOne;
 
 	EntitySystem systemOfEntities;
 	///////////////////////////////////////////
@@ -76,14 +82,13 @@ int main() {
 
 		//This shit seems to work right now
 		Camera.UpdateCamera();
-		WorldDisplay.DrawEverything();
+		WorldDisplay.DrawWorld();
 		Player.Draw();
 		systemOfEntities.drawEntities();
 		systemOfEntities.runEntities();
 		Inventory.HotbarFunctions();
 		Input.MouseFunctions();
 		Input.RunKeyboardInput();
-
 
 		/// This is a debug thing for closing the game by pressing backspace
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {

@@ -23,9 +23,22 @@ WorldTileGenerator::WorldTileGenerator() {
 	//Texture Loading
 	if (!DebugTex.loadFromFile("Sprites/Tiles/Debug.png")) {}
 	if(!GrassTex.loadFromFile("Sprites/Tiles/Grass.png")) {}
+	if (!redTex.loadFromFile("Sprites/Tiles/Red.png")) {}
+	if (!blueTex.loadFromFile("Sprites/Tiles/Blue.png")) {}
+	if (!purpleTex.loadFromFile("Sprites/Tiles/Purple.png")) {}
+	if (!fuzzenConstructionTex.loadFromFile("Sprites/Tiles/FuzzenConst.png")) {}
+	if (!jesseConstructionTex.loadFromFile("Sprites/Tiles/JesseConst.png")) {}
+	if (!pathTex.loadFromFile("Sprites/Tiles/Path.png")) {}
+
 	//Sprite Setup
 	DebugSprite.setTexture(DebugTex);
 	GrassSprite.setTexture(GrassTex);
+	redSprite.setTexture(redTex);
+	blueSprite.setTexture(blueTex);
+	purpleSprite.setTexture(purpleTex);
+	fuzzenConstructionSprite.setTexture(fuzzenConstructionTex);
+	jesseConstructionSprite.setTexture(jesseConstructionTex);
+	pathSprite.setTexture(pathTex);
 
 	//////////  WALLS  //////////
 	//Texture Loading
@@ -59,11 +72,14 @@ void WorldTileGenerator::GenerateTile() {
 			if (randomNumber == 4) {
 				WorldWallMap[randX][randY] = 1;
 			}
-
-			//Generating Tree 2
-			if (randomNumber == 3) {
+			else if (randomNumber == 3) { //Generating Tree 2
 				WorldWallMap[randX][randY] = 2;
 			}
+			else {
+				WorldWallMap[randX][randY] = 0;
+			}
+
+
 
 		}
 	}

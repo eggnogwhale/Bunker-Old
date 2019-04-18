@@ -17,8 +17,20 @@ struct WorldTileGenerator {
 	//////////  TILES  //////////
 	//Textures
 	sf::Texture GrassTex;
+	sf::Texture redTex;
+	sf::Texture blueTex;
+	sf::Texture purpleTex;
+	sf::Texture jesseConstructionTex;
+	sf::Texture fuzzenConstructionTex;
+	sf::Texture pathTex;
 	//Sprites
 	sf::Sprite GrassSprite;
+	sf::Sprite redSprite;
+	sf::Sprite blueSprite;
+	sf::Sprite purpleSprite;
+	sf::Sprite jesseConstructionSprite;
+	sf::Sprite fuzzenConstructionSprite;
+	sf::Sprite pathSprite;
 
 	//////////  WALLS  //////////
 	//Textures

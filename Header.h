@@ -6,7 +6,8 @@
 #include "CameraSystem.h"
 #include "DisplayNumbersSystem.h"
 #include "ResourceManager.h"
-
+#include "SaveSystem.h"
+#include "InputSystem.h"
 //Holds A pointer to the window
 extern sf::RenderWindow * WindowPass;
 
@@ -25,5 +26,11 @@ extern DisplayNumbersSystem * DisplayNumberPass;
 // Pointer to the camera system reachable by any file including this one 
 extern CameraSystem * CameraPass;
 
+//Saving System Pass
+extern SaveSystem * SaveSystemPass;
+
 //Resources
 extern ResourceManager * ResourcePass;
+
+//Input Pass
+extern InputSystem * InputPass;

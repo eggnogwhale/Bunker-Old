@@ -1,6 +1,12 @@
 ///////////////   TILES   ///////////////
-0 - Debug Tile
-1 - Grass Tile
+0 - Debug
+1 - Grass
+2 - Red
+3 - Purple
+4 - Blue
+5 - Jesse  Construction Zone
+6 - Fuzzen Construction Zone
+7 - Path
 
 ///////////////   WALLS   ///////////////
 0 - Void Tile

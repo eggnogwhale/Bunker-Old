@@ -14,7 +14,7 @@ struct WorldDisplaySystem {
 	WorldDisplaySystem();
 
 	//Master World Drawing
-	void DrawEverything();
+	void DrawWorld();
 
 	//Drawing World Parts
 	void DrawTiles();
