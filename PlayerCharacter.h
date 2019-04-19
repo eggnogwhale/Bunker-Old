@@ -1,24 +1,19 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 
 struct PlayerCharacter {
 
 	//Variables
-	int posX;
-	int posY;
-	int currentDirection;
+	int posX = 0;
+	int posY = 0;
+	int currentDirection = 0;
 	const int moveSpeed = 8;
 
 	//Sprites
-	sf::Sprite UpSprite;
-	sf::Sprite DownSprite;
-	sf::Sprite LeftSprite;
-	sf::Sprite RightSprite;
-	//Textures
-	sf::Texture UpTex;
-	sf::Texture DownTex;
-	sf::Texture LeftTex;
-	sf::Texture RightTex;
-
+	sf::Sprite *UpSprite;
+	sf::Sprite *DownSprite;
+	sf::Sprite *LeftSprite;
+	sf::Sprite *RightSprite;
 
 	//Constructor
 	PlayerCharacter();
@@ -31,5 +26,4 @@ struct PlayerCharacter {
 	void MoveDown();
 	void MoveLeft();
 	void MoveRight();
-
 };

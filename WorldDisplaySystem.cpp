@@ -22,11 +22,24 @@
 /////////////////////////////////////////////////
 
 WorldDisplaySystem::WorldDisplaySystem() {
-	playerTilePosX = 0;
-	playerTilePosY = 0;
+	cameraTilePosX = 0;
+	cameraTilePosY = 0;
 	drawX = 0;
 	drawY = 0;
 	displayError = 0;
+	
+	DebugSprite = &ResourcePass->DebugSprite;
+	
+	GrassSprite = &ResourcePass->GrassSprite;
+	redSprite = &ResourcePass->redSprite;
+	blueSprite = &ResourcePass->blueSprite;
+	purpleSprite = &ResourcePass->purpleSprite;
+	jesseConstructionSprite = &ResourcePass->jesseConstructionSprite;
+	fuzzenConstructionSprite = &ResourcePass->fuzzenConstructionSprite;
+	pathSprite = &ResourcePass->pathSprite;
+
+	TreeOneSprite = &ResourcePass->TreeOneSprite;
+	TreeTwoSprite = &ResourcePass->TreeTwoSprite;
 	return;
 }
 
@@ -41,14 +54,14 @@ void WorldDisplaySystem::DrawWorld() {
 void WorldDisplaySystem::DrawTiles() {
 
 	//Getting The Player Position
-	playerTilePosX = (PlayerPass->posX - (PlayerPass->posX % 32)) / 32;
-	playerTilePosY = (PlayerPass->posY - (PlayerPass->posY % 32)) / 32;
+	cameraTilePosX = (*CameraPass->posX - (*CameraPass->posX % 32)) / 32;
+	cameraTilePosY = (*CameraPass->posY - (*CameraPass->posY % 32)) / 32;
 
 	//Drawing Tiles on the Y axis
-	for (drawY = (playerTilePosY - 13); drawY != playerTilePosY + 13; drawY++) {
+	for (drawY = (cameraTilePosY - 13); drawY != cameraTilePosY + 13; drawY++) {
 
 		//Drawing Tiles on the X axis
-		for (drawX = (playerTilePosX - 21); drawX != playerTilePosX + 21; drawX++) {
+		for (drawX = (cameraTilePosX - 21); drawX != cameraTilePosX + 21; drawX++) {
 
 			//Resetting display error
 			displayError = 0;
@@ -82,44 +95,44 @@ void WorldDisplaySystem::DrawTiles() {
 
 				//Debug Tile
 				if (WorldTilePass->WorldTileMap[drawX][drawY] == 0) {
-					WorldTilePass->DebugSprite.setPosition(sf::Vector2f(WorldTilePass->DebugSprite.getGlobalBounds().width * drawX, WorldTilePass->DebugSprite.getGlobalBounds().height * drawY));
+					DebugSprite->setPosition(sf::Vector2f(DebugSprite->getGlobalBounds().width * drawX, DebugSprite->getGlobalBounds().height * drawY));
 					//WorldTilePass->DebugSprite.rotate(0.1f); //THIS LINE IS WACK ASS WHEN CHANGED PAST 0
-					WindowPass->draw(WorldTilePass->DebugSprite);
+					WindowPass->draw(*DebugSprite);
 				}
 				//Grass Tile
 				if (WorldTilePass->WorldTileMap[drawX][drawY] == 1) {
-					WorldTilePass->GrassSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
-					WindowPass->draw(WorldTilePass->GrassSprite);
+					GrassSprite->setPosition(sf::Vector2f(GrassSprite->getGlobalBounds().width * drawX, GrassSprite->getGlobalBounds().height * drawY));
+					WindowPass->draw(*GrassSprite);
 				}
 				//Red Tile
 				if (WorldTilePass->WorldTileMap[drawX][drawY] == 2) {
-					WorldTilePass->redSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
-					WindowPass->draw(WorldTilePass->redSprite);
+					redSprite->setPosition(sf::Vector2f(GrassSprite->getGlobalBounds().width * drawX, GrassSprite->getGlobalBounds().height * drawY));
+					WindowPass->draw(*redSprite);
 				}
 				//Purple Tile
 				if (WorldTilePass->WorldTileMap[drawX][drawY] == 3) {
-					WorldTilePass->purpleSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
-					WindowPass->draw(WorldTilePass->purpleSprite);
+					purpleSprite->setPosition(sf::Vector2f(GrassSprite->getGlobalBounds().width * drawX, GrassSprite->getGlobalBounds().height * drawY));
+					WindowPass->draw(*purpleSprite);
 				}
 				//Blue Tile
 				if (WorldTilePass->WorldTileMap[drawX][drawY] == 4) {
-					WorldTilePass->blueSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
-					WindowPass->draw(WorldTilePass->blueSprite);
+					blueSprite->setPosition(sf::Vector2f(GrassSprite->getGlobalBounds().width * drawX, GrassSprite->getGlobalBounds().height * drawY));
+					WindowPass->draw(*blueSprite);
 				}
 				//Jesse Construction Tile
 				if (WorldTilePass->WorldTileMap[drawX][drawY] == 5) {
-					WorldTilePass->jesseConstructionSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
-					WindowPass->draw(WorldTilePass->jesseConstructionSprite);
+					jesseConstructionSprite->setPosition(sf::Vector2f(GrassSprite->getGlobalBounds().width * drawX, GrassSprite->getGlobalBounds().height * drawY));
+					WindowPass->draw(*jesseConstructionSprite);
 				}
 				//Fuzzen Construction Tile
 				if (WorldTilePass->WorldTileMap[drawX][drawY] == 6) {
-					WorldTilePass->fuzzenConstructionSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
-					WindowPass->draw(WorldTilePass->fuzzenConstructionSprite);
+					fuzzenConstructionSprite->setPosition(sf::Vector2f(GrassSprite->getGlobalBounds().width * drawX,GrassSprite->getGlobalBounds().height * drawY));
+					WindowPass->draw(*fuzzenConstructionSprite);
 				}
 				//Path
 				if (WorldTilePass->WorldTileMap[drawX][drawY] == 7) {
-					WorldTilePass->pathSprite.setPosition(sf::Vector2f(WorldTilePass->GrassSprite.getGlobalBounds().width * drawX, WorldTilePass->GrassSprite.getGlobalBounds().height * drawY));
-					WindowPass->draw(WorldTilePass->pathSprite);
+					pathSprite->setPosition(sf::Vector2f(GrassSprite->getGlobalBounds().width * drawX, GrassSprite->getGlobalBounds().height * drawY));
+					WindowPass->draw(*pathSprite);
 				}
 			}
 		}
@@ -130,10 +143,10 @@ void WorldDisplaySystem::DrawTiles() {
 
 void WorldDisplaySystem::DrawWalls() {
 	//Drawing Tiles on the Y axis
-	for (drawY = (playerTilePosY - 13); drawY != playerTilePosY + 13; drawY++) {
+	for (drawY = (cameraTilePosY - 13); drawY != cameraTilePosY + 13; drawY++) {
 
 		//Drawing Tiles on the X axis
-		for (drawX = (playerTilePosX - 21); drawX != playerTilePosX + 21; drawX++) {
+		for (drawX = (cameraTilePosX - 21); drawX != cameraTilePosX + 21; drawX++) {
 
 			//Resetting display error
 			displayError = 0;
@@ -167,14 +180,14 @@ void WorldDisplaySystem::DrawWalls() {
 
 				//Tree One
 				if (WorldTilePass->WorldWallMap[drawX][drawY] == 1) {
-					WorldTilePass->TreeOneSprite.setPosition(sf::Vector2f(32 * drawX, 32 * drawY));
-					WindowPass->draw(WorldTilePass->TreeOneSprite);
+					TreeOneSprite->setPosition(sf::Vector2f(32 * drawX, 32 * drawY));
+					WindowPass->draw(*TreeOneSprite);
 				}
 
 				//Tree One
 				if (WorldTilePass->WorldWallMap[drawX][drawY] == 2) {
-					WorldTilePass->TreeTwoSprite.setPosition(sf::Vector2f(32 * drawX, 32 * drawY));
-					WindowPass->draw(WorldTilePass->TreeTwoSprite);
+					TreeTwoSprite->setPosition(sf::Vector2f(32 * drawX, 32 * drawY));
+					WindowPass->draw(*TreeTwoSprite);
 				}
 
 			}

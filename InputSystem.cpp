@@ -68,7 +68,6 @@ void InputSystem::MouseFunctions() {
 	MouseInteraction();
 	CheckWallInteraction();
 	CheckPlacingTile();
-	DrawMouse();
 }
 
 

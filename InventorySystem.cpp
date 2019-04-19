@@ -112,17 +112,3 @@ void InventorySystem::AddItem(int itemID, int amount) {
 
 	//If the player has no empty spots end the function
 }
-
-
-
-void InventorySystem::DrawInteractionBoxes() {
-
-	return;
-}
-
-
-
-void InventorySystem::HotbarFunctions() {
-	DisplayHotbar();
-	DrawInteractionBoxes();
-}

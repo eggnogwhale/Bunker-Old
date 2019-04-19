@@ -1,12 +1,11 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include "ResourceManager.h"
+
 struct DisplayNumbersSystem {
 	
-	//Textures
-	sf::Texture numberTextures[10];
-
-	//Sprite
-	sf::Sprite numberSprites[10];
-
+	sf::Sprite (*numberSprites)[10];
+	
 	//Constructor
 	DisplayNumbersSystem();
 

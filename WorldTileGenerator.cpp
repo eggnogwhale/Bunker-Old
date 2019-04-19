@@ -18,38 +18,6 @@
 /////////////////////////////////////////////////
 
 WorldTileGenerator::WorldTileGenerator() {
-
-	//////////  TILES  //////////
-	//Texture Loading
-	if (!DebugTex.loadFromFile("Sprites/Tiles/Debug.png")) {}
-	if(!GrassTex.loadFromFile("Sprites/Tiles/Grass.png")) {}
-	if (!redTex.loadFromFile("Sprites/Tiles/Red.png")) {}
-	if (!blueTex.loadFromFile("Sprites/Tiles/Blue.png")) {}
-	if (!purpleTex.loadFromFile("Sprites/Tiles/Purple.png")) {}
-	if (!fuzzenConstructionTex.loadFromFile("Sprites/Tiles/FuzzenConst.png")) {}
-	if (!jesseConstructionTex.loadFromFile("Sprites/Tiles/JesseConst.png")) {}
-	if (!pathTex.loadFromFile("Sprites/Tiles/Path.png")) {}
-
-	//Sprite Setup
-	DebugSprite.setTexture(DebugTex);
-	GrassSprite.setTexture(GrassTex);
-	redSprite.setTexture(redTex);
-	blueSprite.setTexture(blueTex);
-	purpleSprite.setTexture(purpleTex);
-	fuzzenConstructionSprite.setTexture(fuzzenConstructionTex);
-	jesseConstructionSprite.setTexture(jesseConstructionTex);
-	pathSprite.setTexture(pathTex);
-
-	//////////  WALLS  //////////
-	//Texture Loading
-	if (!TreeOneTex.loadFromFile("Sprites/Walls/Tree1.png")) {}
-	if (!TreeTwoTex.loadFromFile("Sprites/Walls/Tree2.png")) {}
-	//Sprite Setup
-	TreeOneSprite.setTexture(TreeOneTex);
-	TreeOneSprite.setOrigin(sf::Vector2f(0, 32));
-	TreeTwoSprite.setTexture(TreeTwoTex);
-	TreeTwoSprite.setOrigin(sf::Vector2f(0, 32));
-	return;
 }
 
 void WorldTileGenerator::GenerateTile() {
@@ -78,11 +46,6 @@ void WorldTileGenerator::GenerateTile() {
 			else {
 				WorldWallMap[randX][randY] = 0;
 			}
-
-
-
 		}
 	}
-
-	return;
 }

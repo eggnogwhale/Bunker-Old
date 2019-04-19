@@ -20,53 +20,42 @@
 /////////////////////////////////////////////////
 
 PlayerCharacter::PlayerCharacter() {
-	//Variable Setup
-	posX = 0;
-	posY = 0;
-	currentDirection = 0;
-
-	//Texture Loading
-	if (!UpTex.loadFromFile("Sprites/Actors/Player/Up.png")) {}
-	if (!DownTex.loadFromFile("Sprites/Actors/Player/Down.png")) {}
-	if (!LeftTex.loadFromFile("Sprites/Actors/Player/Left.png")) {}
-	if (!RightTex.loadFromFile("Sprites/Actors/Player/Right.png")) {}
 	
-	//Sprite Setup
-	UpSprite.setTexture(UpTex);
-	DownSprite.setTexture(DownTex);
-	LeftSprite.setTexture(LeftTex);
-	RightSprite.setTexture(RightTex);
-
-	return;
+	//Get Sprites
+	UpSprite = &ResourcePass->UpSprite;
+	DownSprite = &ResourcePass->DownSprite;
+	LeftSprite = &ResourcePass->LeftSprite;
+	RightSprite = &ResourcePass->RightSprite;
+	
 }
 
 void PlayerCharacter::Draw() {
 
+	/*use cases or arrays for this?*/ 
+	
 	//Facing Down
 	if(currentDirection == 0) {
-		DownSprite.setPosition(sf::Vector2f(posX, posY));
-		WindowPass->draw(DownSprite);
+		DownSprite->setPosition(sf::Vector2f(posX, posY));
+		WindowPass->draw(*DownSprite);
 	}
 
 	//Facing Up
-	if (currentDirection == 2) {
-		UpSprite.setPosition(sf::Vector2f(posX, posY));
-		WindowPass->draw(UpSprite);
+	else if (currentDirection == 2) {
+		UpSprite->setPosition(sf::Vector2f(posX, posY));
+		WindowPass->draw(*UpSprite);
 	}
 
 	//Facing Left
-	if (currentDirection == 3) {
-		LeftSprite.setPosition(sf::Vector2f(posX, posY));
-		WindowPass->draw(LeftSprite);
+	else if (currentDirection == 3) {
+		LeftSprite->setPosition(sf::Vector2f(posX, posY));
+		WindowPass->draw(*LeftSprite);
 	}
 
 	//Facing Down
-	if (currentDirection == 1) {
-		RightSprite.setPosition(sf::Vector2f(posX, posY));
-		WindowPass->draw(RightSprite);
+	else if (currentDirection == 1) {
+		RightSprite->setPosition(sf::Vector2f(posX, posY));
+		WindowPass->draw(*RightSprite);
 	}
-
-	return;
 }
 
 void PlayerCharacter::MoveUp() {

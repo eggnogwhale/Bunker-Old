@@ -1,4 +1,3 @@
-#include <SFML/Graphics.hpp>
 #include "CameraSystem.h"
 #include "Header.h"
 

@@ -82,11 +82,14 @@ int main() {
 
 		//This shit seems to work right now
 		Camera.UpdateCamera();
-		WorldDisplay.DrawWorld();
+		WorldDisplay.DrawTiles();
 		Player.Draw();
 		systemOfEntities.drawEntities();
+		WorldDisplay.DrawWalls();
+		Inventory.DisplayHotbar();
+		Input.DrawMouse();
+		
 		systemOfEntities.runEntities();
-		Inventory.HotbarFunctions();
 		Input.MouseFunctions();
 		Input.RunKeyboardInput();
 

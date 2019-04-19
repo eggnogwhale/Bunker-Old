@@ -1,5 +1,4 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include "PlayerCharacter.h"
 #include "WorldTileGenerator.h"
 #include "InventorySystem.h"
@@ -8,6 +7,8 @@
 #include "ResourceManager.h"
 #include "SaveSystem.h"
 #include "InputSystem.h"
+#include "Bleeb.h"
+
 //Holds A pointer to the window
 extern sf::RenderWindow * WindowPass;
 

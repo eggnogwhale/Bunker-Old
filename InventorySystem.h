@@ -1,4 +1,6 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+
 struct InventorySystem {
 
 	//Constructor
@@ -8,13 +10,7 @@ struct InventorySystem {
 	void DisplayHotbar();
 	void AddItem(int itemID, int amount);
 
-	//Draw Hotbar Interaction Boxes
-	void DrawInteractionBoxes();
-
-public:
-
-	//Master Function
-	void HotbarFunctions();
+private:
 
 	//Invisible Interaction Boxes
 	sf::RectangleShape interactionBox;
@@ -31,5 +27,4 @@ public:
 	int inventory[20];
 	int inventoryAmount[20];
 	int inventoryDurability[20];
-
 };
